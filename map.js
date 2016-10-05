@@ -71,6 +71,7 @@ function placeRedline() {
 function placeMyPin() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
+                    
                     myLat = position.coords.latitude;
                     myLng = position.coords.longitude;
                     placemarker();
@@ -86,7 +87,6 @@ function placeMyPin() {
 //opens infowindow option
 
 function placemarker() {
-            
             myposition = new google.maps.LatLng(myLat, myLng);
 
             var mymarker = new google.maps.Marker({
@@ -246,7 +246,7 @@ function parse_schedule(callback, marker) {
     }
 
     //specifies type of request
-    x.open("GET", "https://powerful-depths-66091.herokuapp.com/redline.json", true);
+    x.open("GET", "https://rocky-taiga-26352.herokuapp.com/redline.json", true);
     //sends the request
     x.send();
 
