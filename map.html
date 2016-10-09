@@ -1,0 +1,79 @@
+<!---map.html
+
+Project Description: 
+    This webpage displays a google map with an MBTA red line
+    overlaid. Users can click on the red circular stops or on a station name from
+    the dropdown menu to display live MBTA schedule information. Users can also
+    click on the pin the represents their current location to view their distance
+    from the closest stop.
+    The schedule information contains upcoming trains, their destination, and
+    the number of minutes unti arrival at that stop. 
+
+3rd Party Libraries and Services used:
+    Google Maps API - Used for map display and interaction, and MBTA overlay display and 
+    interaction. Coordinates of red line stops (lats/longs) were copied from a public
+    website. 
+    Real-time subway schedule data: This data is accessed through an ajax request
+    from the following URL: https://rocky-taiga-26352.herokuapp.com/redline.json
+
+File Description:
+    Main html file for MBTA Map Webpage
+    Places map div, menu bar div, and dropdown menu, calls javascript files to display
+    google map, red line, dropdown menu, and support user click interaction.
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MBTA Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/mapstyle.css">
+  </head>
+  <body>
+        <div id="map">
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKkmmC0690vOi7v_rMr2o5b_RXjZm8_yY"></script> 
+        <script src="js/redstops.js"></script>
+        <script src="js/map.js"></script>
+        <script src="js/menu.js"></script>
+
+<!--Dropdown Menu-->
+            <div class="container overlap">
+                <br>
+                <h3 class="normaltext">Red Line Schedule</h3>
+                <p class="normaltext">  Choose a station from the drop-down menu below or by clicking on the map to see its schedule: </p>
+                  <div class="dropdown">
+                    <button onclick="dropclick()" class="dropbtn">Station..</button>
+                      <div id="myDropdown" class="dropdown-content">
+                      <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                        <a href="#">Alewife</a>
+                        <a href="#">Davis</a>
+                        <a href="#">Porter Square</a>
+                        <a href="#">Harvard Square</a>
+                        <a href="#">Central Square</a>
+                        <a href="#">Kendall/MIT</a>
+                        <a href="#">Charles/MGH</a>
+                        <a href="#">Park Street</a>
+                        <a href="#">Downtown Crossing</a>
+                        <a href="#">South Station</a>
+                        <a href="#">Broadway</a>
+                        <a href="#">Andrew</a>
+                        <a href="#">JFK/UMass</a>
+                        <a href="#">Savin Hill</a>
+                        <a href="#">Fields Corner</a>
+                        <a href="#">Shawmut</a>
+                        <a href="#">Ashmont</a>
+                        <a href="#">North Quincy</a>
+                        <a href="#">Wollaston</a>
+                        <a href="#">Quincy Center</a>
+                        <a href="#">Quincy Adams</a>
+                        <a href="#">Braintree</a>
+                      </div>
+                  </div>
+                  <br>
+            </div>
+        </div>   
+      <script src="js/dropdown.js"></script>
+  </body>
+</html>
+
